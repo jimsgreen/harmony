@@ -1,348 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Division Strategies — Grade 5 Quiz</title>
-<style>
-  :root{
-    --ink:#1f2937; --muted:#6b7280; --brand:#2563eb; --ok:#059669; --bad:#dc2626;
-    --card:#ffffff; --bg:#f8fafc;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.35}
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 16px;z-index:5}
-  header h1{font-size:1.1rem;margin:0}
-  .wrap{max-width:900px;margin:0 auto;padding:16px}
-  .notice{background:#eef2ff;border:1px solid #c7d2fe;padding:10px;border-radius:12px;margin:8px 0;font-size:0.95rem}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-  button{border:0;border-radius:10px;padding:12px 16px;background:var(--brand);color:#fff;font-weight:600;cursor:pointer}
-  button.secondary{background:#1118270f;color:#111827;border:1px solid #e5e7eb}
-  button:disabled{opacity:.6;cursor:not-allowed}
-  label.switch{display:inline-flex;align-items:center;gap:8px;font-weight:600}
-  input[type="checkbox"].tgl{appearance:none;width:46px;height:26px;background:#e5e7eb;border-radius:999px;position:relative;outline:none;cursor:pointer}
-  input[type="checkbox"].tgl:checked{background:#c7d2fe}
-  input[type="checkbox"].tgl::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:999px;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:.2s}
-  input[type="checkbox"].tgl:checked::after{left:23px}
-  section.topic{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:14px 16px;margin:16px 0}
-  section.topic h2{margin:.2rem 0 .6rem;font-size:1.1rem}
-  .q{padding:12px;border-radius:12px;border:1px solid #e5e7eb;margin:10px 0;background:#fff}
-  .q h3{margin:0 0 6px;font-size:1rem}
-  .q .meta{font-size:.86rem;color:var(--muted);margin-bottom:6px}
-  .choices{display:grid;gap:6px;margin-top:8px}
-  .choices label{display:flex;align-items:flex-start;gap:10px;padding:8px;border:1px solid #e5e7eb;border-radius:10px;background:#fafafa}
-  textarea{width:100%;min-height:100px;border:1px solid #e5e7eb;border-radius:10px;padding:10px;font-size:1rem;background:#fbfdff}
-  .feedback{margin-top:8px;font-weight:700}
-  .feedback.ok{color:var(--ok)} .feedback.bad{color:var(--bad)}
-  .answerkey{display:none;margin-top:10px;border-top:1px dashed #e5e7eb;padding-top:10px}
-  .answerkey .soln{background:#f0fdf4;border:1px solid #bbf7d0;padding:10px;border-radius:10px;margin:8px 0}
-  .answerkey code{background:#eef2ff;padding:2px 6px;border-radius:6px}
-  .svgbox{margin:8px 0;display:flex;justify-content:center}
-  .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569;font-size:.8rem;margin-left:6px}
-  .credit{color:#94a3b8;font-size:.85rem;margin:24px 0 8px}
-</style>
+  <meta charset="UTF-8">
+  <title>Grade 5 Math Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: "Comic Sans MS", sans-serif; background: #fdfdfd; margin: 0; padding: 0; }
+    header { background: #4caf50; color: white; text-align: center; padding: 1rem; }
+    section { margin: 20px; padding: 20px; border-radius: 12px; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);}
+    h2 { color: #4caf50; }
+    .question { margin: 15px 0; }
+    .options label { display: block; margin: 5px 0; }
+    .feedback { font-weight: bold; margin-top: 5px; }
+    #submitBtn { display: block; margin: 20px auto; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 8px; background: #4caf50; color: white; cursor: pointer; }
+    #results { text-align: center; font-size: 1.2rem; margin: 20px; }
+    #timer { font-weight: bold; color: #e91e63; text-align: center; font-size: 1.2rem; }
+    #teacherMode { margin: 20px; padding: 15px; border: 2px dashed #333; display: none; }
+    .explanation { background: #f1f8e9; margin: 10px 0; padding: 10px; border-radius: 8px; }
+  </style>
 </head>
 <body>
-<header>
-  <h1>Division Strategies — Grade 5 Quiz <span class="pill">Auto‑Grading + Teacher Mode</span></h1>
-</header>
-<div class="wrap">
-  <div class="notice">
-    Student Mode: Answer each question. Tap <strong>Check my answers</strong> to grade the multiple‑choice problems. Open‑response questions aren’t auto‑graded; show your work in the box.<br/>
-    <strong>Teacher Mode</strong> reveals the answer key, step‑by‑step solutions, and scoring notes.
-  </div>
-  <div class="controls">
-    <button id="btnGrade">Check my answers</button>
-    <button class="secondary" id="btnReset">Reset</button>
-    <label class="switch"><input type="checkbox" class="tgl" id="teacherToggle" /> Teacher Mode</label>
-  </div>
+  <header>
+    <h1>Grade 5 Math Quiz</h1>
+    <p>Practice Strategies and Skills</p>
+    <div id="timer">Time: 0s</div>
+  </header>
 
-  <!-- Topic 1 -->
-  <section class="topic" data-topic="1">
-    <h2>1) Solving Division Word Problems</h2>
-
-    <div class="q" id="q1" data-type="mc" data-answer="C">
-      <h3>Q1 (MC). A 5th‑grade reading club logged <strong>4,860 pages</strong> over <strong>27 days</strong>. On average, how many pages did they read per day?</h3>
-      <div class="meta">Choose one.</div>
-      <div class="choices">
-        <label><input type="radio" name="q1" value="A"> A. 160 pages</label>
-        <label><input type="radio" name="q1" value="B"> B. 170 pages</label>
-        <label><input type="radio" name="q1" value="C"> C. 180 pages</label>
-        <label><input type="radio" name="q1" value="D"> D. 200 pages</label>
-      </div>
-      <div class="feedback" aria-live="polite"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> C (180)</div>
-        <div class="soln"><strong>Why:</strong> 4,860 ÷ 27. Since 27 × 180 = 4,860, the mean is <code>180</code> pages/day.</div>
-      </div>
-    </div>
-
-    <div class="q" id="q2" data-type="open">
-      <h3>Q2 (Open). A landscaper delivered <strong>29</strong> bags of soil. Altogether they weigh <strong>2,320 lb</strong>. How many pounds does each bag weigh?</h3>
-      <div class="meta">Show your division work.</div>
-      <textarea placeholder="Explain your steps..."></textarea>
-      <div class="answerkey">
-        <div><strong>Sample solution:</strong></div>
-        <div class="soln">
-          Compute 2,320 ÷ 29. Since 29 × 80 = 2,320, each bag is <strong>80 lb</strong>.
-          Strategy: Use facts 29 × 8 = 232 → ×10 gives 2,320.
+  <!-- Topics -->
+  <main>
+    <section id="properties">
+      <h2>Properties of Operations (Strategy: Using Properties)</h2>
+      <div class="question">
+        <p>1. Which property does this equation show? <b>(7 + 3) + 2 = 7 + (3 + 2)</b></p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="A"> Commutative Property</label>
+          <label><input type="radio" name="q1" value="B"> Associative Property</label>
+          <label><input type="radio" name="q1" value="C"> Distributive Property</label>
+          <label><input type="radio" name="q1" value="D"> Identity Property</label>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Topic 2 -->
-  <section class="topic" data-topic="2">
-    <h2>2) Division with 4‑Digit Dividends & 2‑Digit Divisors</h2>
-
-    <div class="q" id="q3" data-type="mc" data-answer="B">
-      <h3>Q3 (MC). 3,456 ÷ 32 = ?</h3>
-      <div class="choices">
-        <label><input type="radio" name="q3" value="A"> A. 112</label>
-        <label><input type="radio" name="q3" value="B"> B. 108</label>
-        <label><input type="radio" name="q3" value="C"> C. 106</label>
-        <label><input type="radio" name="q3" value="D"> D. 96</label>
+      <div class="question">
+        <p>2. Explain how you can use the Distributive Property to solve 6 × 14 in your own words.</p>
+        <textarea name="q2" rows="3" style="width:100%"></textarea>
       </div>
-      <div class="feedback"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> B (108)</div>
-        <div class="soln">
-          <em>Check:</em> 32 × 108 = 32 × (100 + 8) = 3,200 + 256 = <strong>3,456</strong>.
+    </section>
+
+    <section id="addition">
+      <h2>Addition, Subtraction, and Estimation (Skill: Estimation)</h2>
+      <div class="question">
+        <p>3. Estimate: 498 + 302 ≈ ?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="A"> 700</label>
+          <label><input type="radio" name="q3" value="B"> 800</label>
+          <label><input type="radio" name="q3" value="C"> 1,000</label>
+          <label><input type="radio" name="q3" value="D"> 600</label>
         </div>
       </div>
-    </div>
+      <div class="question">
+        <p>4. Show how you can check subtraction by using addition.</p>
+        <textarea name="q4" rows="3" style="width:100%"></textarea>
+      </div>
+    </section>
 
-    <div class="q" id="q4" data-type="open">
-      <h3>Q4 (Open). Use long division to solve <strong>7,128 ÷ 24</strong>. Show your work and state the quotient.</h3>
-      <textarea placeholder="Work space..."></textarea>
-      <div class="answerkey">
-        <div class="soln">
-          24 × 300 = 7,200 (too high), try 24 × 297 = 24 × (300 − 3) = 7,200 − 72 = <strong>7,128</strong>. So the quotient is <strong>297</strong>.
+    <section id="multiply">
+      <h2>Multiply Whole Numbers (Skill: Multiplication)</h2>
+      <div class="question">
+        <p>5. What is 36 × 24?</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="A"> 684</label>
+          <label><input type="radio" name="q5" value="B"> 720</label>
+          <label><input type="radio" name="q5" value="C"> 864</label>
+          <label><input type="radio" name="q5" value="D"> 900</label>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Topic 3 -->
-  <section class="topic" data-topic="3">
-    <h2>3) Distributive Property of Division</h2>
-
-    <div class="q" id="q5" data-type="mc" data-answer="B">
-      <h3>Q5 (MC). Which expression correctly uses the distributive property to compute <strong>84 ÷ 6</strong>?</h3>
-      <div class="svgbox">
-        <!-- simple array/area model split -->
-        <svg width="280" height="120" role="img" aria-label="84 split into 60 and 24, both shared by 6">
-          <rect x="10" y="20" width="260" height="80" fill="#e0f2fe" stroke="#93c5fd"/>
-          <rect x="10" y="20" width="185" height="80" fill="#bfdbfe" stroke="#93c5fd"/>
-          <text x="25" y="50" font-size="14">60</text>
-          <text x="210" y="50" font-size="14">24</text>
-          <text x="120" y="100" font-size="12">84 = 60 + 24</text>
-        </svg>
+      <div class="question">
+        <p>6. Write a multiplication story problem with whole numbers and solve it.</p>
+        <textarea name="q6" rows="3" style="width:100%"></textarea>
       </div>
-      <div class="choices">
-        <label><input type="radio" name="q5" value="A"> A. (80 ÷ 6) + (4 ÷ 6)</label>
-        <label><input type="radio" name="q5" value="B"> B. (60 ÷ 6) + (24 ÷ 6)</label>
-        <label><input type="radio" name="q5" value="C"> C. (84 ÷ 60) + (84 ÷ 24)</label>
-        <label><input type="radio" name="q5" value="D"> D. 84 ÷ (6 + 6)</label>
-      </div>
-      <div class="feedback"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> B</div>
-        <div class="soln">Split 84 into two multiples of 6: 60 and 24. Then 84 ÷ 6 = (60 ÷ 6) + (24 ÷ 6) = 10 + 4 = <strong>14</strong>.</div>
-      </div>
-    </div>
+    </section>
 
-    <div class="q" id="q6" data-type="open">
-      <h3>Q6 (Open). Use the distributive property to compute <strong>126 ÷ 7</strong>. Show your split and your reasoning.</h3>
-      <textarea placeholder="Example: 126 = 70 + 56, so (70÷7) + (56÷7) = ..."></textarea>
-      <div class="answerkey">
-        <div class="soln">
-          One way: 126 = 70 + 56 (both multiples of 7). Then 126 ÷ 7 = (70 ÷ 7) + (56 ÷ 7) = 10 + 8 = <strong>18</strong>.
+    <section id="divide">
+      <h2>Divide and Estimate Quotients (with 2-Digit Divisors) (Skill: Division)</h2>
+      <div class="question">
+        <p>7. Estimate: 742 ÷ 18 ≈ ?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="A"> 20</label>
+          <label><input type="radio" name="q7" value="B"> 30</label>
+          <label><input type="radio" name="q7" value="C"> 40</label>
+          <label><input type="radio" name="q7" value="D"> 50</label>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Topic 4 -->
-  <section class="topic" data-topic="4">
-    <h2>4) Lesson 2.6 — Divide by 2‑Digit Divisors</h2>
-
-    <div class="q" id="q7" data-type="mc" data-answer="C">
-      <h3>Q7 (MC). What is <strong>2,016 ÷ 63</strong>?</h3>
-      <div class="choices">
-        <label><input type="radio" name="q7" value="A"> A. 28</label>
-        <label><input type="radio" name="q7" value="B"> B. 30</label>
-        <label><input type="radio" name="q7" value="C"> C. 32</label>
-        <label><input type="radio" name="q7" value="D"> D. 36</label>
+      <div class="question">
+        <p>8. Show how you would estimate 945 ÷ 22. Explain your steps.</p>
+        <textarea name="q8" rows="3" style="width:100%"></textarea>
       </div>
-      <div class="feedback"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> C (32)</div>
-        <div class="soln">63 × 32 = 63 × (30 + 2) = 1,890 + 126 = <strong>2,016</strong>.</div>
-      </div>
-    </div>
+    </section>
 
-    <div class="q" id="q8" data-type="open">
-      <h3>Q8 (Open). Divide using partial quotients: <strong>1,764 ÷ 42</strong>. Show each partial chunk you subtract.</h3>
-      <textarea placeholder="Example: subtract 42×20, then 42×10, ..."></textarea>
-      <div class="answerkey">
-        <div class="soln">
-          One path: 1,764 − (42×20=840) → 924; −(42×10=420) → 504; −(42×10=420) → 84; −(42×2=84) → 0. Total = 20+10+10+2 = <strong>42</strong>.
+    <section id="adjust">
+      <h2>Adjust Quotients (Skill: Division Adjustment)</h2>
+      <div class="question">
+        <p>9. A school has 1,005 pencils to give to 42 students. About how many pencils will each student get?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="A"> 20</label>
+          <label><input type="radio" name="q9" value="B"> 24</label>
+          <label><input type="radio" name="q9" value="C"> 26</label>
+          <label><input type="radio" name="q9" value="D"> 30</label>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Topic 5 -->
-  <section class="topic" data-topic="5">
-    <h2>5) Lesson 2.7 — Adjust Quotients</h2>
-
-    <div class="q" id="q9" data-type="mc" data-answer="B">
-      <h3>Q9 (MC). Estimate <strong>3,189 ÷ 47</strong>. Which is the best estimate?</h3>
-      <div class="choices">
-        <label><input type="radio" name="q9" value="A"> A. 54</label>
-        <label><input type="radio" name="q9" value="B"> B. 64</label>
-        <label><input type="radio" name="q9" value="C"> C. 74</label>
-        <label><input type="radio" name="q9" value="D"> D. 84</label>
+      <div class="question">
+        <p>10. Explain how you would adjust your quotient if you divide 873 by 29 and your first guess is too high.</p>
+        <textarea name="q10" rows="3" style="width:100%"></textarea>
       </div>
-      <div class="feedback"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> B (64)</div>
-        <div class="soln">Round 47→50 and 3,189→3,200. Then 3,200 ÷ 50 = 64.</div>
-      </div>
-    </div>
+    </section>
 
-    <div class="q" id="q10" data-type="open">
-      <h3>Q10 (Open). Compute <strong>2,375 ÷ 48</strong>. A student guessed 50 because 48≈50. Explain how to adjust the quotient and give the final answer with any remainder.</h3>
-      <textarea placeholder="Explain why 50 is too high and adjust."></textarea>
-      <div class="answerkey">
-        <div class="soln">
-          Since 50×48 = 2,400, that’s greater than 2,375, so 50 is too high. Try 49: 49×48 = 2,352; remainder 2,375−2,352 = <strong>23</strong>. Final: <strong>49 R 23</strong> (or 49 and 23/48).
+    <section id="strategies">
+      <h2>Division Strategies (Skill: Strategy Use)</h2>
+      <div class="question">
+        <p>11. Which is a good way to divide 96 ÷ 8?</p>
+        <div class="options">
+          <label><input type="radio" name="q11" value="A"> Skip count by 8s</label>
+          <label><input type="radio" name="q11" value="B"> Multiply 8 × 96</label>
+          <label><input type="radio" name="q11" value="C"> Add 8 + 96</label>
+          <label><input type="radio" name="q11" value="D"> Subtract 8 – 96</label>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Topic 6 -->
-  <section class="topic" data-topic="6">
-    <h2>6) Lesson 2.8 — Problem Solving (Division)</h2>
-
-    <div class="q" id="q11" data-type="mc" data-answer="C">
-      <h3>Q11 (MC). A race has <strong>7,175 runners</strong>. Water bottles come <strong>18 per case</strong>. What is the least number of cases so every runner gets one bottle?</h3>
-      <div class="choices">
-        <label><input type="radio" name="q11" value="A"> A. 380</label>
-        <label><input type="radio" name="q11" value="B"> B. 398</label>
-        <label><input type="radio" name="q11" value="C"> C. 399</label>
-        <label><input type="radio" name="q11" value="D"> D. 400</label>
+      <div class="question">
+        <p>12. Write one strategy you can use to solve 144 ÷ 12.</p>
+        <textarea name="q12" rows="3" style="width:100%"></textarea>
       </div>
-      <div class="feedback"></div>
-      <div class="answerkey">
-        <div><strong>Answer:</strong> C (399)</div>
-        <div class="soln">
-          7,175 ÷ 18 = 398 remainder 11 (since 18×398=7,164). Need one more case to cover all runners → <strong>399</strong> cases.
+    </section>
+
+    <section id="review">
+      <h2>Whole Number Operations Review (Skill: Mixed Practice)</h2>
+      <div class="question">
+        <p>13. A theater has 12 rows with 36 seats each. If 278 people bought tickets, how many empty seats are there?</p>
+        <div class="options">
+          <label><input type="radio" name="q13" value="A"> 144</label>
+          <label><input type="radio" name="q13" value="B"> 154</label>
+          <label><input type="radio" name="q13" value="C"> 156</label>
+          <label><input type="radio" name="q13" value="D"> 166</label>
         </div>
       </div>
-    </div>
-
-    <div class="q" id="q12" data-type="open">
-      <h3>Q12 (Open). A farmer has <strong>9,663 eggs</strong>. Each crate holds <strong>4 dozen</strong> eggs. After filling as many crates as possible, how many eggs are left?</h3>
-      <textarea placeholder="Remember: 4 dozen = 48 eggs. Show your division."></textarea>
-      <div class="answerkey">
-        <div class="soln">
-          4 dozen = 48. Compute 9,663 ÷ 48. Since 48 × 201 = 9,648, leftover = 9,663−9,648 = <strong>15</strong> eggs.
-        </div>
+      <div class="question">
+        <p>14. Explain how you solved a word problem that used both multiplication and subtraction.</p>
+        <textarea name="q14" rows="3" style="width:100%"></textarea>
       </div>
+    </section>
+
+    <button id="submitBtn">Submit Quiz</button>
+    <div id="results"></div>
+
+    <!-- Teacher Mode -->
+    <div style="text-align:center;">
+      <button onclick="enterTeacherMode()">Enter Teacher Mode</button>
     </div>
-  </section>
+    <div id="teacherMode">
+      <h2>Teacher Mode: Answer Key & Explanations</h2>
+      <div class="explanation"><b>Q1:</b> Associative Property. (Changing the grouping doesn’t change the sum.)</div>
+      <div class="explanation"><b>Q3:</b> 498 ≈ 500, 302 ≈ 300 → 800.</div>
+      <div class="explanation"><b>Q5:</b> 36 × 24 = 864.</div>
+      <div class="explanation"><b>Q7:</b> 742 ÷ 18 ≈ 40 (since 18×40=720).</div>
+      <div class="explanation"><b>Q9:</b> 1,005 ÷ 42 ≈ 24.</div>
+      <div class="explanation"><b>Q11:</b> Skip count by 8s is correct.</div>
+      <div class="explanation"><b>Q13:</b> 12×36=432 seats. 432–278=154 empty.</div>
+    </div>
+  </main>
 
-  <p class="credit">© You may share this quiz with your class. Auto‑grading script & layout by ChatGPT for the HarmonyTX — Lessons project.</p>
-</div>
+  <script>
+    const correctAnswers = { q1:"B", q3:"B", q5:"C", q7:"C", q9:"B", q11:"A", q13:"B" };
+    let startTime = Date.now();
+    let timerInterval = setInterval(() => {
+      let elapsed = Math.floor((Date.now() - startTime)/1000);
+      document.getElementById("timer").textContent = "Time: " + elapsed + "s";
+    },1000);
 
-<script>
-(function(){
-  const teacherToggle = document.getElementById('teacherToggle');
-  const btnGrade = document.getElementById('btnGrade');
-  const btnReset = document.getElementById('btnReset');
+    document.getElementById("submitBtn").addEventListener("click", gradeQuiz);
 
-  function setTeacherMode(on){
-    document.querySelectorAll('.answerkey').forEach(d=>{
-      d.style.display = on ? 'block':'none';
-    });
-    localStorage.setItem('teacherMode', on ? '1' : '0');
-  }
-
-  function grade(){
-    let total = 0, correct = 0;
-    document.querySelectorAll('.q[data-type="mc"]').forEach(q=>{
-      total++;
-      const ans = q.getAttribute('data-answer');
-      const chosen = q.querySelector('input[type="radio"]:checked');
-      const box = q.querySelector('.feedback');
-      if(!chosen){ box.textContent = 'No answer selected.'; box.className='feedback bad'; return; }
-      if(chosen.value === ans){
-        correct++; box.textContent = 'Correct ✓'; box.className='feedback ok';
-      }else{
-        box.textContent = 'Not quite. Try again!'; box.className='feedback bad';
+    function gradeQuiz(){
+      clearInterval(timerInterval);
+      let total = Object.keys(correctAnswers).length;
+      let score = 0;
+      for(let key in correctAnswers){
+        let selected = document.querySelector("input[name='"+key+"']:checked");
+        if(selected && selected.value === correctAnswers[key]){ score++; }
       }
-    });
-    const pct = Math.round(correct/Math.max(total,1)*100);
-    btnGrade.textContent = `Score: ${correct}/${total} (${pct}%) — Check again`;
-  }
+      let percent = Math.round((score/total)*100);
+      let elapsed = Math.floor((Date.now()-startTime)/1000);
+      document.getElementById("results").innerHTML = 
+        `You got ${score} out of ${total} correct. <br>Score: ${percent}% <br>Time: ${elapsed} seconds`;
+    }
 
-  function resetAll(){
-    document.querySelectorAll('input[type="radio"]').forEach(r=> r.checked=false);
-    document.querySelectorAll('textarea').forEach(t=> t.value='');
-    document.querySelectorAll('.feedback').forEach(f=> f.textContent='');
-    btnGrade.textContent = 'Check my answers';
-    localStorage.removeItem('quizState');
-  }
-
-  // Persist answers (lightweight)
-  function saveState(){
-    const state = {};
-    document.querySelectorAll('.q[data-type="mc"]').forEach(q=>{
-      const id = q.id;
-      const chosen = q.querySelector('input[type="radio"]:checked');
-      state[id] = chosen ? chosen.value : '';
-    });
-    document.querySelectorAll('.q[data-type="open"]').forEach(q=>{
-      const id = q.id;
-      const txt = q.querySelector('textarea').value;
-      state[id] = txt || '';
-    });
-    localStorage.setItem('quizState', JSON.stringify(state));
-  }
-  function loadState(){
-    try{
-      const s = JSON.parse(localStorage.getItem('quizState') || '{}');
-      Object.entries(s).forEach(([id,val])=>{
-        const q = document.getElementById(id);
-        if(!q) return;
-        if(q.dataset.type==='mc'){
-          const r = q.querySelector(`input[value="${val}"]`);
-          if(r) r.checked = true;
-        }else{
-          const t = q.querySelector('textarea');
-          if(t) t.value = val;
-        }
-      });
-    }catch(e){}
-  }
-
-  // wire up
-  btnGrade.addEventListener('click', ()=>{ grade(); saveState(); });
-  btnReset.addEventListener('click', ()=>{ resetAll(); saveState(); });
-  document.addEventListener('change', (e)=>{
-    if(e.target.matches('input[type="radio"], textarea')) saveState();
-    if(e.target===teacherToggle) setTeacherMode(teacherToggle.checked);
-  });
-
-  // init
-  loadState();
-  const tm = localStorage.getItem('teacherMode')==='1';
-  teacherToggle.checked = tm;
-  setTeacherMode(tm);
-})();
-</script>
+    function enterTeacherMode(){
+      let pw = prompt("Enter Teacher Mode password:");
+      if(pw==="harmony"){
+        document.getElementById("teacherMode").style.display="block";
+      } else {
+        alert("Incorrect password");
+      }
+    }
+  </script>
 </body>
 </html>

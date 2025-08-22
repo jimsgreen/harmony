@@ -2,200 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grade 5 Math Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz - Prime, Composite, and Factors</title>
   <style>
-    body { font-family: "Comic Sans MS", sans-serif; background: #fdfdfd; margin: 0; padding: 0; }
-    header { background: #4caf50; color: white; text-align: center; padding: 1rem; }
-    section { margin: 20px; padding: 20px; border-radius: 12px; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.15);}
-    h2 { color: #4caf50; }
-    .question { margin: 15px 0; }
-    .options label { display: block; margin: 5px 0; }
-    .feedback { font-weight: bold; margin-top: 5px; }
-    #submitBtn { display: block; margin: 20px auto; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 8px; background: #4caf50; color: white; cursor: pointer; }
-    #results { text-align: center; font-size: 1.2rem; margin: 20px; }
-    #timer { font-weight: bold; color: #e91e63; text-align: center; font-size: 1.2rem; }
-    #teacherMode { margin: 20px; padding: 15px; border: 2px dashed #333; display: none; }
-    .explanation { background: #f1f8e9; margin: 10px 0; padding: 10px; border-radius: 8px; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fbfd;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4a90e2;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #357ab7;
+    }
+    #results, #scorecard, #teacherMode {
+      margin: 20px;
+      padding: 20px;
+      background: #eef6ff;
+      border-radius: 10px;
+      display: none;
+    }
+    #timer {
+      font-weight: bold;
+      color: #d9534f;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .answer-key {
+      margin-top: 10px;
+      padding: 10px;
+      background: #fff4d9;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Grade 5 Math Quiz</h1>
-    <p>Practice Strategies and Skills</p>
+    <h1>Math Quiz: Prime & Composite Numbers, Factors, Divisibility</h1>
     <div id="timer">Time: 0s</div>
   </header>
 
-  <!-- Topics -->
-  <main>
-    <section id="properties">
-      <h2>Properties of Operations (Strategy: Using Properties)</h2>
-      <div class="question">
-        <p>1. Which property does this equation show? <b>(7 + 3) + 2 = 7 + (3 + 2)</b></p>
-        <div class="options">
-          <label><input type="radio" name="q1" value="A"> Commutative Property</label>
-          <label><input type="radio" name="q1" value="B"> Associative Property</label>
-          <label><input type="radio" name="q1" value="C"> Distributive Property</label>
-          <label><input type="radio" name="q1" value="D"> Identity Property</label>
-        </div>
+  <!-- Prime and Composite Numbers -->
+  <section>
+    <h2>Prime and Composite Numbers (Skill: Classify Numbers)</h2>
+    <div class="question">
+      <p>1. Which of the following numbers is a prime number?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A) 21</label>
+        <label><input type="radio" name="q1" value="B"> B) 29</label>
+        <label><input type="radio" name="q1" value="C"> C) 33</label>
+        <label><input type="radio" name="q1" value="D"> D) 51</label>
       </div>
-      <div class="question">
-        <p>2. Explain how you can use the Distributive Property to solve 6 × 14 in your own words.</p>
-        <textarea name="q2" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="addition">
-      <h2>Addition, Subtraction, and Estimation (Skill: Estimation)</h2>
-      <div class="question">
-        <p>3. Estimate: 498 + 302 ≈ ?</p>
-        <div class="options">
-          <label><input type="radio" name="q3" value="A"> 700</label>
-          <label><input type="radio" name="q3" value="B"> 800</label>
-          <label><input type="radio" name="q3" value="C"> 1,000</label>
-          <label><input type="radio" name="q3" value="D"> 600</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>4. Show how you can check subtraction by using addition.</p>
-        <textarea name="q4" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="multiply">
-      <h2>Multiply Whole Numbers (Skill: Multiplication)</h2>
-      <div class="question">
-        <p>5. What is 36 × 24?</p>
-        <div class="options">
-          <label><input type="radio" name="q5" value="A"> 684</label>
-          <label><input type="radio" name="q5" value="B"> 720</label>
-          <label><input type="radio" name="q5" value="C"> 864</label>
-          <label><input type="radio" name="q5" value="D"> 900</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>6. Write a multiplication story problem with whole numbers and solve it.</p>
-        <textarea name="q6" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="divide">
-      <h2>Divide and Estimate Quotients (with 2-Digit Divisors) (Skill: Division)</h2>
-      <div class="question">
-        <p>7. Estimate: 742 ÷ 18 ≈ ?</p>
-        <div class="options">
-          <label><input type="radio" name="q7" value="A"> 20</label>
-          <label><input type="radio" name="q7" value="B"> 30</label>
-          <label><input type="radio" name="q7" value="C"> 40</label>
-          <label><input type="radio" name="q7" value="D"> 50</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>8. Show how you would estimate 945 ÷ 22. Explain your steps.</p>
-        <textarea name="q8" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="adjust">
-      <h2>Adjust Quotients (Skill: Division Adjustment)</h2>
-      <div class="question">
-        <p>9. A school has 1,005 pencils to give to 42 students. About how many pencils will each student get?</p>
-        <div class="options">
-          <label><input type="radio" name="q9" value="A"> 20</label>
-          <label><input type="radio" name="q9" value="B"> 24</label>
-          <label><input type="radio" name="q9" value="C"> 26</label>
-          <label><input type="radio" name="q9" value="D"> 30</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>10. Explain how you would adjust your quotient if you divide 873 by 29 and your first guess is too high.</p>
-        <textarea name="q10" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="strategies">
-      <h2>Division Strategies (Skill: Strategy Use)</h2>
-      <div class="question">
-        <p>11. Which is a good way to divide 96 ÷ 8?</p>
-        <div class="options">
-          <label><input type="radio" name="q11" value="A"> Skip count by 8s</label>
-          <label><input type="radio" name="q11" value="B"> Multiply 8 × 96</label>
-          <label><input type="radio" name="q11" value="C"> Add 8 + 96</label>
-          <label><input type="radio" name="q11" value="D"> Subtract 8 – 96</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>12. Write one strategy you can use to solve 144 ÷ 12.</p>
-        <textarea name="q12" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <section id="review">
-      <h2>Whole Number Operations Review (Skill: Mixed Practice)</h2>
-      <div class="question">
-        <p>13. A theater has 12 rows with 36 seats each. If 278 people bought tickets, how many empty seats are there?</p>
-        <div class="options">
-          <label><input type="radio" name="q13" value="A"> 144</label>
-          <label><input type="radio" name="q13" value="B"> 154</label>
-          <label><input type="radio" name="q13" value="C"> 156</label>
-          <label><input type="radio" name="q13" value="D"> 166</label>
-        </div>
-      </div>
-      <div class="question">
-        <p>14. Explain how you solved a word problem that used both multiplication and subtraction.</p>
-        <textarea name="q14" rows="3" style="width:100%"></textarea>
-      </div>
-    </section>
-
-    <button id="submitBtn">Submit Quiz</button>
-    <div id="results"></div>
-
-    <!-- Teacher Mode -->
-    <div style="text-align:center;">
-      <button onclick="enterTeacherMode()">Enter Teacher Mode</button>
     </div>
-    <div id="teacherMode">
-      <h2>Teacher Mode: Answer Key & Explanations</h2>
-      <div class="explanation"><b>Q1:</b> Associative Property. (Changing the grouping doesn’t change the sum.)</div>
-      <div class="explanation"><b>Q3:</b> 498 ≈ 500, 302 ≈ 300 → 800.</div>
-      <div class="explanation"><b>Q5:</b> 36 × 24 = 864.</div>
-      <div class="explanation"><b>Q7:</b> 742 ÷ 18 ≈ 40 (since 18×40=720).</div>
-      <div class="explanation"><b>Q9:</b> 1,005 ÷ 42 ≈ 24.</div>
-      <div class="explanation"><b>Q11:</b> Skip count by 8s is correct.</div>
-      <div class="explanation"><b>Q13:</b> 12×36=432 seats. 432–278=154 empty.</div>
+    <div class="question">
+      <p>2. Explain how you can determine if 37 is a prime or composite number.</p>
+      <textarea name="q2" rows="3" cols="50"></textarea>
     </div>
-  </main>
+  </section>
+
+  <!-- Divisibility Rules -->
+  <section>
+    <h2>Divisibility Rules (Skill: Apply Rules to Identify Factors)</h2>
+    <div class="question">
+      <p>3. Which number is divisible by 3?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A) 124</label>
+        <label><input type="radio" name="q3" value="B"> B) 225</label>
+        <label><input type="radio" name="q3" value="C"> C) 142</label>
+        <label><input type="radio" name="q3" value="D"> D) 101</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. Use a divisibility rule to test if 135 is divisible by 5. Show your reasoning.</p>
+      <textarea name="q4" rows="3" cols="50"></textarea>
+    </div>
+  </section>
+
+  <!-- Factors and Divisibility Math on the Spot -->
+  <section>
+    <h2>Factors and Divisibility Math on the Spot (Skill: Factorization)</h2>
+    <div class="question">
+      <p>5. Which of the following is a factor of 84?</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A"> A) 9</label>
+        <label><input type="radio" name="q5" value="B"> B) 7</label>
+        <label><input type="radio" name="q5" value="C"> C) 11</label>
+        <label><input type="radio" name="q5" value="D"> D) 19</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>6. List all factors of 36.</p>
+      <textarea name="q6" rows="3" cols="50"></textarea>
+    </div>
+  </section>
+
+  <!-- Prime and Composite Math on the Spot -->
+  <section>
+    <h2>Prime and Composite Math on the Spot (Skill: Classification Practice)</h2>
+    <div class="question">
+      <p>7. Which number below is composite?</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A) 17</label>
+        <label><input type="radio" name="q7" value="B"> B) 23</label>
+        <label><input type="radio" name="q7" value="C"> C) 49</label>
+        <label><input type="radio" name="q7" value="D"> D) 31</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>8. Explain why 1 is neither prime nor composite.</p>
+      <textarea name="q8" rows="3" cols="50"></textarea>
+    </div>
+  </section>
+
+  <!-- Factoring -->
+  <section>
+    <h2>Factoring (Skill: Build Factor Trees)</h2>
+    <div class="question">
+      <p>9. Which factor tree correctly shows the prime factorization of 60?</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A) 60 → 2 × 30 → 2 × 3 × 10 → 2 × 3 × 2 × 5</label>
+        <label><input type="radio" name="q9" value="B"> B) 60 → 6 × 10 → 2 × 3 × 10 → 2 × 3 × 5</label>
+        <label><input type="radio" name="q9" value="C"> C) 60 → 5 × 12 → 5 × 6 × 2</label>
+        <label><input type="radio" name="q9" value="D"> D) 60 → 4 × 15 → 2 × 2 × 15 → 2 × 2 × 5 × 3</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>10. Draw or describe a factor tree for 48. Show the prime factors.</p>
+      <textarea name="q10" rows="3" cols="50"></textarea>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin:20px;">
+    <button onclick="submitQuiz()">Submit Answers</button>
+  </div>
+
+  <div id="results"></div>
+  <div id="scorecard"></div>
+
+  <!-- Teacher Mode -->
+  <section id="teacherMode">
+    <h2>Teacher Mode: Answer Key & Explanations</h2>
+    <div class="answer-key">
+      <p><strong>Q1:</strong> B (29 is prime; others have more factors)</p>
+      <p><strong>Q2:</strong> 37 has only factors 1 and 37 → Prime</p>
+      <p><strong>Q3:</strong> B (225 → digits sum to 9, divisible by 3)</p>
+      <p><strong>Q4:</strong> Ends in 5 → divisible by 5</p>
+      <p><strong>Q5:</strong> B (84 ÷ 7 = 12)</p>
+      <p><strong>Q6:</strong> Factors of 36: 1,2,3,4,6,9,12,18,36</p>
+      <p><strong>Q7:</strong> C (49 = 7×7, composite)</p>
+      <p><strong>Q8:</strong> 1 has only one factor → neither prime nor composite</p>
+      <p><strong>Q9:</strong> D (Correct full prime factorization of 60)</p>
+      <p><strong>Q10:</strong> Factor tree for 48 → 2 × 2 × 2 × 2 × 3</p>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin:20px;">
+    <button onclick="toggleTeacherMode()">Enter Teacher Mode</button>
+  </div>
 
   <script>
-    const correctAnswers = { q1:"B", q3:"B", q5:"C", q7:"C", q9:"B", q11:"A", q13:"B" };
     let startTime = Date.now();
-    let timerInterval = setInterval(() => {
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    function updateTimer() {
       let elapsed = Math.floor((Date.now() - startTime)/1000);
-      document.getElementById("timer").textContent = "Time: " + elapsed + "s";
-    },1000);
-
-    document.getElementById("submitBtn").addEventListener("click", gradeQuiz);
-
-    function gradeQuiz(){
-      clearInterval(timerInterval);
-      let total = Object.keys(correctAnswers).length;
-      let score = 0;
-      for(let key in correctAnswers){
-        let selected = document.querySelector("input[name='"+key+"']:checked");
-        if(selected && selected.value === correctAnswers[key]){ score++; }
-      }
-      let percent = Math.round((score/total)*100);
-      let elapsed = Math.floor((Date.now()-startTime)/1000);
-      document.getElementById("results").innerHTML = 
-        `You got ${score} out of ${total} correct. <br>Score: ${percent}% <br>Time: ${elapsed} seconds`;
+      document.getElementById("timer").innerText = "Time: " + elapsed + "s";
     }
 
-    function enterTeacherMode(){
-      let pw = prompt("Enter Teacher Mode password:");
-      if(pw==="harmony"){
-        document.getElementById("teacherMode").style.display="block";
+    function submitQuiz() {
+      clearInterval(timerInterval);
+      let correctAnswers = {
+        q1:"B", q3:"B", q5:"B", q7:"C", q9:"D"
+      };
+      let total = Object.keys(correctAnswers).length;
+      let score = 0;
+      let resultsHTML = "<h3>Results:</h3>";
+      for (let q in correctAnswers) {
+        let selected = document.querySelector('input[name="'+q+'"]:checked');
+        if (selected) {
+          if (selected.value === correctAnswers[q]) {
+            score++;
+            resultsHTML += "<p>"+q+": Correct ✅</p>";
+          } else {
+            resultsHTML += "<p>"+q+": Incorrect ❌</p>";
+          }
+        } else {
+          resultsHTML += "<p>"+q+": No Answer ❌</p>";
+        }
+      }
+      document.getElementById("results").innerHTML = resultsHTML;
+      document.getElementById("results").style.display = "block";
+      let elapsed = Math.floor((Date.now() - startTime)/1000);
+      let percentage = Math.round((score/total)*100);
+      document.getElementById("scorecard").innerHTML = "<h3>Scorecard:</h3><p>Correct: "+score+" / "+total+"</p><p>Percentage: "+percentage+"%</p><p>Time Taken: "+elapsed+"s</p>";
+      document.getElementById("scorecard").style.display = "block";
+    }
+
+    function toggleTeacherMode() {
+      let pwd = prompt("Enter Teacher Mode Password:");
+      if (pwd === "harmony") {
+        let tm = document.getElementById("teacherMode");
+        if (tm.style.display === "none" || tm.style.display === "") {
+          tm.style.display = "block";
+        } else {
+          tm.style.display = "none";
+        }
       } else {
-        alert("Incorrect password");
+        alert("Incorrect password!");
       }
     }
   </script>
